@@ -44,15 +44,3 @@ sudo tee -a /etc/systemd/resolved.conf << END
 DNS=127.0.0.1
 Domains=~consul
 END
-
-sudo iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600 
-sudo iptables -t nat -A PREROUTING -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600 
-sudo iptables -t nat -A OUTPUT -d localhost -p udp -m udp --dport 53 -j REDIRECT --to-ports 8600 
-sudo iptables -t nat -A OUTPUT -d localhost -p tcp -m tcp --dport 53 -j REDIRECT --to-ports 8600 
-
-sudo echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections 
-sudo echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections 
-
-sudo apt-get -y install iptables-persistent 
-
-sudo reboot
