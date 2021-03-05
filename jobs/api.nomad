@@ -48,6 +48,7 @@ job "api-job" {
         env=true
         destination="secrets/file.env"
         data= <<EOH
+Environment=Development
 Redis__HOST="redis.service.consul"
         EOH
       }

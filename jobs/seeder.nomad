@@ -31,7 +31,8 @@ job "seeder-job" {
         env=true
         destination="secrets/file.env"
         data= <<EOH
-Api__BaseUrl="fabio.service.consul/service"
+Environment=Development
+Api__BaseUrl="http://fabio.service.consul/service/"
           EOH
       }
 
