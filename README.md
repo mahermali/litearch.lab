@@ -2,6 +2,9 @@
 LiteArch.Lab is collection of shell scripts, the scripts will provision nomad and consul cluster.
 The scripts are easily customizable to change the number of servers and clients.
 
+# What is it not?
+It's not PROD setup.
+
 # Requirements
 1. Ubuntu: It's been tested with Ubuntu Focal 
 2. Ubuntu Awesome Hypervisor: [https://multipass.run/](https://multipass.run/)
