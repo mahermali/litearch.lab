@@ -27,6 +27,14 @@ job "seeder-job" {
         dns_servers = ["${attr.unique.network.ip-address}", "8.8.8.8"]     
       }
 
+      template {
+        env=true
+        destination="secrets/file.env"
+        data= <<EOH
+Api__BaseUrl="fabio.service.consul/service"
+          EOH
+      }
+
       service {
         name = "seeder"        
       }

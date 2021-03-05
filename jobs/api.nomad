@@ -53,9 +53,9 @@ Redis__HOST="redis.service.consul"
       }
 
       service {
-        name = "api"
+        name = "service"
         port = "http"
-        tags = ["urlprefix-/api strip=/api"]
+        tags = ["urlprefix-/service strip=/service"]
         
         check {
           name     = "alive"
