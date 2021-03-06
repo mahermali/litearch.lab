@@ -35,6 +35,11 @@ client {
     "capabilities" = "#capabilities"
   }
 }
+plugin "raw_exec" {
+  config {
+    enabled = true
+  }
+}
 END
 sudo systemctl restart nomad
 
