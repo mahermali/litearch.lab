@@ -1,8 +1,8 @@
-job "litearch-collector-job" {
+job "litearch-trafik-collector-job" {
   datacenters = ["LiteArch"]
   type = "system"
 
-  group "litearch-collector-group" {   
+  group "litearch-trafik-collector-group" {   
 
     network {
       port "tcp" {
@@ -10,11 +10,11 @@ job "litearch-collector-job" {
       }
     }
 
-    task "litearch-collector" {
+    task "litearch-trafik-collector" {
       driver = "docker"
 
       config {
-        image = "maherali/litearch-collector:latest"
+        image = "maherali/litearch-trafik-collector:latest"
         dns_servers = ["${attr.unique.network.ip-address}", "8.8.8.8"] 
         force_pull=true  
         ports = ["tcp"]  
@@ -37,7 +37,7 @@ Configuration__ExpiresInSeconds="30"
       }
 
       service {
-        name = "litearch-collector"
+        name = "litearch-trafik-collector"
         port = "tcp"        
         
         check {

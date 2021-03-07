@@ -1,4 +1,4 @@
-job "litearch-consolidator-job" {
+job "litearch-trafik-consolidator-job" {
   datacenters = ["LiteArch"]
   type = "batch"
 
@@ -7,13 +7,13 @@ job "litearch-consolidator-job" {
     prohibit_overlap = true
   }
 
-  group "litearch-consolidator-group" {   
+  group "litearch-trafik-consolidator-group" {   
 
-    task "litearch-consolidator" {
+    task "litearch-trafik-consolidator" {
       driver = "docker"
 
       config {
-        image = "maherali/litearch-consolidator:latest"
+        image = "maherali/litearch-trafik-consolidator:latest"
         dns_servers = ["${attr.unique.network.ip-address}", "8.8.8.8"] 
         force_pull=true  
       }

@@ -1,10 +1,10 @@
-job "litearch-sampler-job" {
+job "litearch-trafik-sampler-job" {
   datacenters = ["LiteArch"]
   type = "system"
 
-  group "litearch-sampler-group" {
+  group "litearch-trafik-sampler-group" {
 
-    task "litearch-sampler" {
+    task "litearch-trafik-sampler" {
         driver = "raw_exec"
 
         config {
