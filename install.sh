@@ -55,3 +55,6 @@ multipass exec S1 -- nomad run "$(pwd)/jobs/fabio.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/redis.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/seeder.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/api.nomad"
+
+multipass exec S1 -- nomad run "$(pwd)/jobs/collector.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/sampler.nomad"

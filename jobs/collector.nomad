@@ -26,7 +26,7 @@ job "litearch-collector-job" {
         data= <<EOH
 Environment=Development
 Configuration__ConnectionString="redis.service.consul"
-Configuration__Port="20999"
+Configuration__Port="50777"
 Configuration__ExpiresInSeconds="30"
           EOH
       }
