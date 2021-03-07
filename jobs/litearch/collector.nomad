@@ -6,7 +6,7 @@ job "litearch-collector-job" {
 
     network {
       port "tcp" {
-        static = 20999
+        static = 50777
       }
     }
 

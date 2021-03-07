@@ -51,10 +51,11 @@ done
 
 # Jobs
 
-multipass exec S1 -- nomad run "$(pwd)/jobs/fabio.nomad"
-multipass exec S1 -- nomad run "$(pwd)/jobs/redis.nomad"
-multipass exec S1 -- nomad run "$(pwd)/jobs/seeder.nomad"
-multipass exec S1 -- nomad run "$(pwd)/jobs/api.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/demo/fabio.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/demo/redis.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/demo/seeder.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/demo/api.nomad"
 
-multipass exec S1 -- nomad run "$(pwd)/jobs/collector.nomad"
-multipass exec S1 -- nomad run "$(pwd)/jobs/sampler.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/collector.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/sampler.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/consolidator.nomad"

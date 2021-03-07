@@ -9,11 +9,13 @@ job "litearch-sampler-job" {
 
         config {
             command = "bash"
-            args=["sampler.sh"]
+            args=["local/sampler.sh"]
         }
 
         artifact {
             source = "https://raw.githubusercontent.com/mahermali/litearch.trafik/main/sampler.sh"
+            mode = "file"
+            destination = "local/sampler.sh"
         }
 
         resources {
