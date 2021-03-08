@@ -60,3 +60,8 @@ multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/collector.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/consolidator.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/api.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/sampler.nomad"
+api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api")
+echo $api
+multipass exec C1 -- cp "$(pwd)/jobs/litearch/trafik/portal.nomad" /tmp/portal.nomad
+multipass exec C1 -- sed -i 's|#API|'"$api"'|g' "/tmp/portal.nomad"
+multipass exec C1 -- nomad run "/tmp/portal.nomad"
