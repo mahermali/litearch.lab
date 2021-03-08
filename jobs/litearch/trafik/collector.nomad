@@ -27,7 +27,7 @@ job "litearch-trafik-collector-job" {
 Environment=Development
 Configuration__ConnectionString="redis.service.consul"
 Configuration__Port="50777"
-Configuration__ExpiresInSeconds="30"
+Configuration__ExpiresInSeconds="3"
           EOH
       }
 
@@ -47,6 +47,26 @@ Configuration__ExpiresInSeconds="30"
           timeout  = "2s"
         }
       }
+    }
+
+      task "litearch-trafik-sampler" {
+        driver = "raw_exec"
+
+        config {
+            command = "bash"
+            args=["local/sampler.sh"]
+        }
+
+        artifact {
+            source = "https://raw.githubusercontent.com/mahermali/litearch.trafik/main/sampler.sh"
+            mode = "file"
+            destination = "local/sampler.sh"
+        }
+
+        resources {
+            cpu    = 100
+            memory = 64
+      }     
     }
   }
 }

@@ -58,4 +58,5 @@ multipass exec S1 -- nomad run "$(pwd)/jobs/demo/api.nomad"
 
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/collector.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/consolidator.nomad"
+multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/api.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/sampler.nomad"
