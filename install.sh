@@ -64,7 +64,7 @@ api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xar
 
 api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api")
 
-while [[ ! -z "$var" ]]
+while [[ ! -z "$api" ]]
 do
   echo $api
   api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api") 
