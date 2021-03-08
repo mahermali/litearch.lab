@@ -19,5 +19,7 @@ Give it some time (with 6 VMs it takes up to 20 minutes)
 # Access the cluster?
 After the installation is complete, the links to Nomad, Fabio and Consul can be extracted by running the following command:
 
-`./info.sh`
+`./links.sh`
+
+You will find different links to Nomad, Consul, Fabio and LiteAtch Portal.
 
