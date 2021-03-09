@@ -60,11 +60,10 @@ multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/collector.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/consolidator.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/api.nomad"
 multipass exec S1 -- nomad run "$(pwd)/jobs/litearch/trafik/sampler.nomad"
-api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api")
 
 api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api")
 
-while [ "$api" != "http:///trafik-api" ] 
+while [ "$api" == "http:///trafik-api" ] 
 do
   echo $api
   api=$(multipass exec C1 -- dig +short trafik-api.service.consul @localhost | xargs printf "http://%s/trafik-api") 
