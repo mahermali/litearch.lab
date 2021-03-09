@@ -27,7 +27,8 @@ job "litearch-trafik-collector-job" {
 Environment=Development
 Configuration__ConnectionString="redis.service.consul"
 Configuration__Port="50777"
-Configuration__ExpiresInSeconds="3"
+Configuration__StartRetentionSeconds="3"
+Configuration__MaxRetentionSeconds="300"
           EOH
       }
 
