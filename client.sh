@@ -3,11 +3,11 @@ sudo tee -a /etc/apt/apt.conf.d/99force-ipv4 << END
 Acquire::ForceIPv4 "true";
 END
 
-# 1. Docker
+# 1. Docker & JQ
 sudo apt-get update 
 sudo apt install -y docker.io 
 sudo usermod -aG docker $USER 
-
+sudo apt install -y jq
 # 2. Consul
 
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -

@@ -11,8 +11,8 @@ job "swiss-job" {
       }
 
       resources {
-        cpu    = 200
-        memory = 128
+        cpu    = 100
+        memory = 64
         network {
           mbits = 20        
         }
